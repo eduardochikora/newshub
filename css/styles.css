@@ -1,0 +1,55 @@
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #161b22;
+  --color-text: #f5f5f5;
+  --color-text-secondary: #8b949e;
+  --color-border: #2a2f37;
+  --color-accent: #e8a33d;
+  --color-accent-hover: #f0b35c;
+
+  --color-category-mundo: #8a63d2;
+  --color-category-tecnologia: #4d8ef0;
+  --color-category-negocios: #e8823d;
+  --color-category-esporte: #4dbd74;
+  --color-category-mundo-bg: rgba(138, 99, 210, 0.15);
+  --color-category-tecnologia-bg: rgba(77, 142, 240, 0.15);
+  --color-category-negocios-bg: rgba(232, 130, 61, 0.15);
+  --color-category-esporte-bg: rgba(77, 189, 116, 0.15);
+  
+  --chip-text-active: #ffffff;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme=light] {
+  --color-bg: #f5f0e8;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #6e6e6e;
+  --color-border: #e0dcd3;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 18px;
+}
