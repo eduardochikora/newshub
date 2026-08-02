@@ -1,36 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 :root {
-  --color-bg: #0a0a0a;
-  --color-surface: #161b22;
-  --color-text: #f5f5f5;
-  --color-text-secondary: #8b949e;
-  --color-border: #2a2f37;
+  --color-bg: #080808;
+  --color-bg-alt: #0e0e0e;
+  --color-surface: #121212;
+  --color-surface-high: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-dim: #484848;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-focus: rgba(232, 163, 61, 0.45);
+  --color-input-bg: rgba(255, 255, 255, 0.06);
+ 
   --color-accent: #e8a33d;
   --color-accent-hover: #f0b35c;
-
+ 
+  --color-category-tudo: #e8a33d;
   --color-category-mundo: #dc4c4c;
-  --color-category-tecnologia: #4d8ef0;
-  --color-category-negocios: #e8823d;
-  --color-category-esportes: #4dbd74;
-  --color-category-salvos: #8b949e;
-
+  --color-category-tecnologia: #60a5fa;
+  --color-category-negocios: #fb923c;
+  --color-category-esportes: #34d399;
+  --color-category-salvos: #9ca3af;
+ 
+  --color-category-tudo-bg: rgba(232, 163, 61, 0.15);
   --color-category-mundo-bg: rgba(220, 76, 76, 0.15);
-  --color-category-tecnologia-bg: rgba(77, 142, 240, 0.15);
-  --color-category-negocios-bg: rgba(232, 130, 61, 0.15);
-  --color-category-esportes-bg: rgba(77, 189, 116, 0.15);
-  --color-category-salvos-bg: rgba(139, 148, 158, 0.15);
+  --color-category-tecnologia-bg: rgba(96, 165, 250, 0.15);
+  --color-category-negocios-bg: rgba(251, 146, 60, 0.15);
+  --color-category-esportes-bg: rgba(52, 211, 153, 0.15);
+  --color-category-salvos-bg: rgba(156, 163, 175, 0.15);
 
+  --color-blur: rgba(18, 18, 18, 0.85);
+ 
   --chip-text-active: #ffffff;
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme=light] {
-  --color-bg: #f5f0e8;
+ 
+[data-theme='light'] {
+  --color-bg: #f2ede6;
+  --color-bg-alt: #e9e3db;
   --color-surface: #ffffff;
-  --color-text: #1a1a1a;
-  --color-text-secondary: #6e6e6e;
-  --color-border: #e0dcd3;
+  --color-surface-high: #f7f4ef;
+  --color-text: #111111;
+  --color-text-secondary: #777777;
+  --color-text-dim: #c0c0c0;
+  --color-border: rgba(0, 0, 0, 0.07);
+  --color-border-focus: rgba(232, 163, 61, 0.5);
+  --color-input-bg: rgba(0, 0, 0, 0.05);
+  --color-blur: rgba(255, 255, 255, 0.88);
+
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -44,17 +60,26 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: 'Inter', -apple-system, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 header {
-  padding: 1rem 1.3rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-blur);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem 1.3rem;
+  max-width: 1200px;
 }
 
 .header-brand {
@@ -79,6 +104,7 @@ header {
   color: var(--color-text);
   font-weight: 800;
   font-size: 1.2rem;
+  letter-spacing: 0.03em;
 }
 
 .search-container {
@@ -86,10 +112,16 @@ header {
   max-width: 450px;
   width: 100%;
   gap: 0.7rem;
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-high);
   color: var(--color-text-secondary);
   padding: 0.7rem 0.8rem;
+  border: 1px solid transparent;
   border-radius: 12px;
+  transition: border-color 0.4s ease;
+}
+
+.search-container:focus-within {
+  border-color: var(--color-accent);
 }
 
 .visually-hidden {
@@ -113,9 +145,10 @@ header {
   border: none;
 }
 
-.header-container input:focus-visible {
+.search-container input:focus-visible {
   color: var(--color-text);
 }
+
 
 .search-container input[type="search"] {
   appearance: none;
@@ -131,6 +164,7 @@ header {
   border: none;
   outline: none;
   cursor: pointer;
+  transition: color 0.4s ease;
 }
 
 .header-container button:focus-visible {
@@ -142,9 +176,114 @@ header {
 }
 
 #theme-toggle {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-high);
   width: 38px;
   height: 38px;
   font-size: 1rem;
   border-radius: 12px;
+}
+
+.filters-container {
+  background-color: var(--color-blur);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filters {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.3rem;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter i {
+  font-size: 0.9rem;
+}
+
+.filter[aria-pressed="true"] {
+  color: var(--chip-text-active);
+}
+
+.filter--tudo {
+  background-color: var(--color-category-tudo-bg);
+  color: var(--color-category-tudo);
+}
+
+.filter--tudo[aria-pressed="true"] {
+  background-color: var(--color-category-tudo);
+}
+
+.filter--mundo {
+  background-color: var(--color-category-mundo-bg);
+  color: var(--color-category-mundo);
+}
+
+.filter--mundo[aria-pressed="true"] {
+  background-color: var(--color-category-mundo);
+}
+
+.filter--tecnologia {
+  background-color: var(--color-category-tecnologia-bg);
+  color: var(--color-category-tecnologia);
+}
+
+.filter--tecnologia[aria-pressed="true"] {
+  background-color: var(--color-category-tecnologia);
+}
+
+.filter--negocios {
+  background-color: var(--color-category-negocios-bg);
+  color: var(--color-category-negocios);
+}
+
+.filter--negocios[aria-pressed="true"] {
+  background-color: var(--color-category-negocios);
+}
+
+.filter--esportes {
+  background-color: var(--color-category-esportes-bg);
+  color: var(--color-category-esportes);
+}
+
+.filter--esportes[aria-pressed="true"] {
+  background-color: var(--color-category-esportes);
+}
+
+.filter--salvos {
+  background-color: var(--color-category-salvos-bg);
+  color: var(--color-category-salvos);
+}
+
+.filter--salvos[aria-pressed="true"] {
+  background-color: var(--color-category-salvos);
+}
+
+.feed-container, section {
+  max-width: 1200px;
+  padding: 1rem 1.3rem;
+  margin: 0 auto;
+}
+
+.card--featured img {
+  width: 100%;
+}
+
+.card a {
+  text-decoration: none;
 }

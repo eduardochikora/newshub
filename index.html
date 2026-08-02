@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>NewsHub</title>
 </head>
@@ -32,18 +35,30 @@
         </div>
     </header>
     <main>
-        <div class="filters" role="group" aria-label="Filtrar notícias por categoria">
-            <button type="button" data-category="tudo" aria-pressed="true">Tudo</button>
-            <button type="button" data-category="mundo" aria-pressed="false">Mundo</button>
-            <button type="button" data-category="tecnologia" aria-pressed="false">Tecnologia</button>
-            <button type="button" data-category="negocios" aria-pressed="false">Negócios</button>
-            <button type="button" data-category="esportes" aria-pressed="false">Esportes</button>
-            <button type="button" data-category="salvos" aria-pressed="false">
-                <i class="ri-star-fill"></i> Salvos
-            </button>
+        <div class="filters-container">
+            <div class="filters" role="group" aria-label="Filtrar notícias por categoria">
+                <button type="button" class="filter filter--tudo" data-category="tudo" aria-pressed="true">
+                    <i class="ri-apps-line"></i> Tudo
+                </button>
+                <button type="button" class="filter filter--mundo" data-category="mundo" aria-pressed="false">
+                    <i class="ri-earth-line"></i> Mundo
+                </button>
+                <button type="button" class="filter filter--tecnologia" data-category="tecnologia" aria-pressed="false">
+                    <i class="ri-cpu-line"></i> Tecnologia
+                </button>
+                <button type="button" class="filter filter--negocios" data-category="negocios" aria-pressed="false">
+                    <i class="ri-line-chart-line"></i> Negócios
+                </button>
+                <button type="button" class="filter filter--esportes" data-category="esportes" aria-pressed="false">
+                    <i class="ri-football-line"></i> Esportes
+                </button>
+                <button type="button" class="filter filter--salvos" data-category="salvos" aria-pressed="false">
+                    <i class="ri-star-line"></i> Salvos
+                </button>
+            </div>
         </div>
         <div class="feed-container">
-            <article class="card card-featured">
+            <article class="card card--featured">
                 <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="1">
                     <i class="ri-star-line"></i>
                 </button>
