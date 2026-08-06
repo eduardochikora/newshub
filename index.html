@@ -15,13 +15,13 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="header-brand">
+            <a href="/" class="brand">
                 <div class="icon-badge">
                     <i class="ri-global-line"></i>
                 </div>
                 <span>NewsHub</span>
-            </div>
-            <div class="search-container">
+            </a>
+            <div class="search-container" role="search">
                 <i class="ri-search-line"></i>
                 <label for="news-search" class="visually-hidden">Buscar notícias</label>
                 <input type="search" name="search" id="news-search" placeholder="Buscar notícias...">
@@ -57,19 +57,21 @@
                 </button>
             </div>
         </div>
-        <div class="feed-container">
+        <div class="container">
+
             <article class="card card--featured">
-                <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="1">
+                <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="1">
                     <i class="ri-star-line"></i>
                 </button>
+
                 <a href="..." target="_blank" rel="noopener noreferrer">
-                    <img src="https://resize.indiatvnews.com/en/centered/newbucket/1200_675/2024/06/lok-sabha-1719159943.jpg"
-                        alt="">
+                    <img src="https://resize.indiatvnews.com/en/centered/newbucket/1200_675/2024/06/lok-sabha-1719159943.jpg" alt="">
                     <div class="card-content">
                         <span class="badge badge--mundo">Mundo</span>
                         <h1>Cúpula do G20 debate novas regras para inteligência artificial em escala global</h1>
-                        <p>Líderes de 20 nações se reúnem para estabelecer um marco regulatório conjunto sobre o uso de
-                            IA em setores críticos.</p>
+                        <p>Líderes de 20 nações se reúnem para estabelecer um 
+                            marco regulatório conjunto sobre o uso de IA em setores críticos.</p>
+                        <hr class="divider">
                         <div class="card-meta">
                             <span>Reuters</span>
                             <span class="separator" aria-hidden="true">·</span>
@@ -79,232 +81,140 @@
                 </a>
             </article>
 
-            <article class="card">
-                <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="2">
-                    <i class="ri-star-line"></i>
-                </button>
-                <a href="..." target="_blank" rel="noopener noreferrer">
-                    <img src="https://aventurasnahistoria.com.br/wp-content/uploads/2025/08/GettyImages-2161825482-1-800x450.jpg"
-                        alt="">
-                    <div class="card-content">
-                        <span class="badge badge--tecnologia">Tecnologia</span>
-                        <h2>OpenAI lança GPT-6 com raciocínio multimodal avançado e janela de 2M tokens</h2>
-                        <p>O novo modelo promete raciocínio mais profundo, análise de vídeo em tempo real e integração
-                            nativa com ferramentas...</p>
-                        <div class="divider"></div>
-                        <div class="card-meta">
-                            <span>The Verge</span>
-                            <span class="separator" aria-hidden="true">·</span>
-                            <time datetime="2026-07-21T08:45">21 jul. 2026 · 10:12</time>
-                        </div>
-                    </div>
-                </a>
-            </article>
-
-            <article class="card">
-                <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="3">
-                    <i class="ri-star-line"></i>
-                </button>
-                <a href="..." target="_blank" rel="noopener noreferrer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBGtbSKdpNO0L-IXFh4tl3Wlqi2YaU3l88H7pdSlT5Q&s=10"
-                        alt="">
-                    <div class="card-content">
-                        <span class="badge badge--negocios">Negócios</span>
-                        <h2>Banco Central eleva juros pela terceira vez consecutiva em resposta à pressão...</h2>
-                        <p>A decisão unânime surpreendeu analistas que esperavam uma pausa no ciclo de aperto monetário.</p>
-                        <div class="divider"></div>
-                        <div class="card-meta">
-                            <span>Financial Times</span>
-                            <span class="separator" aria-hidden="true">·</span>
-                            <time datetime="2026-07-21T08:45">20 jul. 2026 · 14:30</time>
-                        </div>
-                    </div>
-                </a>
-            </article>
         </div>
 
-        <section aria-labelledby="titulo-ultimas">
-            <h2 id="titulo-ultimas">Últimas notícias</h2>
+        <section class="container" aria-labelledby="titulo-ultimas">
+            <div class="section-title">
+                <h2 id="titulo-ultimas">Últimas notícias</h2>
+                <hr class="divider">
+            </div>
             <div class="latest-news-container">
-                <article class="card card-compact">
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="2">
+                        <i class="ri-star-line"></i>
+                    </button>
                     <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--esportes">Esportes</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdeLwjWrWnkfP4qDO8XkGKQ958-VBQSFG3P4ST6o78KPzoQvUHP54W_f4&s=10"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--tecnologia">Tecnologia</span>
+                            <h3>OpenAI lança GPT-6 com raciocínio multimodal avançado e janela de 2M tokens</h3>
+                            <p>O novo modelo promete raciocínio mais profundo, análise de vídeo em tempo real e integração nativa com ferramentas externas.</p>
+                            <hr class="divider">
+                            <div class="card-meta">
+                                <span>The Verge</span>
+                                <span class="separator" aria-hidden="true">·</span>
+                                <time datetime="2026-07-21T10:12">21 jul. 2026 · 10:12</time>
+                            </div>
                         </div>
-                        <div class="card-compact-content">
+                    </a>
+                </article>
+                
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="3">
+                        <i class="ri-star-line"></i>
+                    </button>
+                    <a href="..." target="_blank" rel="noopener noreferrer">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBGtbSKdpNO0L-IXFh4tl3Wlqi2YaU3l88H7pdSlT5Q&s=10"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--negocios">Negócios</span>
+                            <h3>Banco Central eleva juros pela terceira vez consecutiva em resposta à pressão inflacionária</h3>
+                            <p>A decisão unânime surpreendeu analistas que esperavam uma pausa no ciclo de aperto monetário.</p>
+                            <hr class="divider">
+                            <div class="card-meta">
+                                <span>Financial Times</span>
+                                <span class="separator" aria-hidden="true">·</span>
+                                <time datetime="2026-07-20T14:30">20 jul. 2026 · 14:30</time>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                                       
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="4">
+                        <i class="ri-star-line"></i>
+                    </button>
+                    <a href="..." target="_blank" rel="noopener noreferrer">
+                        <img src="https://s2-ge.glbimg.com/UlJsNCohtHM7b5akwn1HFQys_v4=/0x0:1500x1054/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2018/A/v/rP2uf3QIaAJl0xBzGbuA/topper-penalti.jpg"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--esportes">Esportes</span>
                             <h3>Brasil vence nos pênaltis e avança para a semifinal da Copa América</h3>
+                            <p>Em noite dramática, o goleiro Ederson defendeu três cobranças e garantiu a classificação da seleção.</p>
+                            <hr class="divider">
                             <div class="card-meta">
                                 <span>ESPN</span>
                                 <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">22:05</time>
+                                <time datetime="2026-07-20T22:05">20 jul. 2026 · 22:05</time>
                             </div>
                         </div>
                     </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="4">
-                        <i class="ri-star-line"></i>
-                    </button>
                 </article>
 
-                <article class="card card-compact">
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="5">
+                        <i class="ri-star-line"></i>
+                    </button>
                     <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--mundo">Mundo</span>
-                        </div>
-                        <div class="card-compact-content">
+                        <img src="https://www.brasildefato.com.br/wp-content/uploads/2026/04/AFP__20260408__A74F9ZQ__v1__MidRes__LebanonIsraelIranUsWar-768x512.webp"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--mundo">Mundo</span>
                             <h3>Negociações de paz no Oriente Médio colapsam após impasse nas condições de cessar-fogo</h3>
+                            <p>Mediadores internacionais suspenderam as conversações após ambos os lados rejeitarem a proposta final.</p>
+                            <hr class="divider">
                             <div class="card-meta">
-                                <span>Al Jazeera</span>
+                                <span>AL Jazeera</span>
                                 <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">11:58</time>
+                                <time datetime="2026-07-20T11:58">20 jul. 2026 · 11:58</time>
                             </div>
                         </div>
                     </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="5">
-                        <i class="ri-star-line"></i>
-                    </button>
                 </article>
 
-                <article class="card card-compact">
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="6">
+                        <i class="ri-star-line"></i>
+                    </button>
                     <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--tecnologia">Tecnologia</span>
-                        </div>
-                        <div class="card-compact-content">
+                        <img src="https://cdn.mos.cms.futurecdn.net/PBvaWwLt4bpaq4irFwLaEP.jpg"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--tecnologia">Tecnologia</span>
                             <h3>Apple revela chip M5 Ultra: 40% mais rápido e com NPU dedicada para IA local</h3>
+                            <p>O novo Mac Pro com M5 Ultra processa modelos de linguagem de 70B parâmetros inteiramente no dispositivo.</p>
+                            <hr class="divider">
                             <div class="card-meta">
                                 <span>MacRumors</span>
                                 <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">09:20</time>
+                                <time datetime="2026-07-19T09:20">19 jul. 2026 · 09:20</time>
                             </div>
                         </div>
                     </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="6">
-                        <i class="ri-star-line"></i>
-                    </button>
                 </article>
 
-                <article class="card card-compact">
+                <article class="card card--news">
+                    <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="7">
+                        <i class="ri-star-line"></i>
+                    </button>
                     <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--negocios">Negócios</span>
-                        </div>
-                        <div class="card-compact-content">
+                        <img src="https://i-invdn-com.investing.com/news/Petrobras_800x533_L_1600266768.jpg"
+                            alt="">
+                        <div class="card-content">
+                            <span class="badge badge--negocios">Negócios</span>
                             <h3>Petrobras registra lucro recorde de R$ 45 bi no segundo trimestre de 2026</h3>
+                            <p>Alta do petróleo e câmbio favorável impulsionam resultado que supera as estimativas de analistas em 18%.</p>
+                            <hr class="divider">
                             <div class="card-meta">
                                 <span>Bloomberg</span>
                                 <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">16:40</time>
+                                <time datetime="2026-07-19T16:40">19 jul. 2026 · 16:40</time>
                             </div>
                         </div>
                     </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="7">
-                        <i class="ri-star-line"></i>
-                    </button>
                 </article>
 
-                <article class="card card-compact">
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--esportes">Esportes</span>
-                        </div>
-                        <div class="card-compact-content">
-                            <h3>Djokovic conquista 25º Grand Slam em Wimbledon aos 39 anos</h3>
-                            <div class="card-meta">
-                                <span>BBC Sport</span>
-                                <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">19:15</time>
-                            </div>
-                        </div>
-                    </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="8">
-                        <i class="ri-star-line"></i>
-                    </button>
-                </article>
-
-                <article class="card card-compact">
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--mundo">Mundo</span>
-                        </div>
-                        <div class="card-compact-content">
-                            <h3>UE aprova pacote de €500 bilhões para acelerar a transição energética verde</h3>
-                            <div class="card-meta">
-                                <span>DW News</span>
-                                <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">13:00</time>
-                            </div>
-                        </div>
-                    </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="9">
-                        <i class="ri-star-line"></i>
-                    </button>
-                </article>
-
-                <article class="card card-compact">
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--tecnologia">Tecnologia</span>
-                        </div>
-                        <div class="card-compact-content">
-                            <h3>SpaceX conclui primeira missão tripulada de retorno a Marte com sucesso</h3>
-                            <div class="card-meta">
-                                <span>NASA / SpaceX</span>
-                                <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">06:30</time>
-                            </div>
-                        </div>
-                    </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="10">
-                        <i class="ri-star-line"></i>
-                    </button>
-                </article>
-
-                <article class="card card-compact">
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--negocios">Negócios</span>
-                        </div>
-                        <div class="card-compact-content">
-                            <h3>Mercados asiáticos fecham em alta após surpresa positiva no payroll americano</h3>
-                            <div class="card-meta">
-                                <span>CNBC</span>
-                                <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">17:50</time>
-                            </div>
-                        </div>
-                    </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="11">
-                        <i class="ri-star-line"></i>
-                    </button>
-                </article>
-
-                <article class="card card-compact">
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <div class="card-compact-thumb">
-                            <img src="..." alt="">
-                            <span class="badge-bar badge-bar--esportes">Esportes</span>
-                        </div>
-                        <div class="card-compact-content">
-                            <h3>Seleção feminina vence Mundial sub-20 e garante vaga nas Olimpíadas de 2028</h3>
-                            <div class="card-meta">
-                                <span>UOL Esporte</span>
-                                <span class="separator" aria-hidden="true">·</span>
-                                <time datetime="...">21:10</time>
-                            </div>
-                        </div>
-                    </a>
-                    <button type="button" class="favorite-btn" aria-label="Salvar notícia" data-id="12">
-                        <i class="ri-star-line"></i>
-                    </button>
-                </article>
             </div>
                 
         </section>
@@ -312,10 +222,12 @@
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <div class="icon-badge">
-                    <i class="ri-global-line"></i>
-                </div>
-                <h2>NewsHub</h2>
+                <a href="/" class="brand">
+                    <div class="icon-badge">
+                        <i class="ri-global-line"></i>
+                    </div>
+                    <span>NewsHub</span>
+                </a>
                 <p>Notícias atualizadas de todo o mundo em um só lugar.</p>
             </div>
             <div class="footer-column">

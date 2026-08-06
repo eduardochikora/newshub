@@ -8,7 +8,7 @@
   --color-text-dim: #484848;
   --color-border: rgba(255, 255, 255, 0.07);
   --color-border-focus: rgba(232, 163, 61, 0.45);
-  --color-input-bg: rgba(255, 255, 255, 0.06);
+  --color-control-bg: rgba(255, 255, 255, 0.06);
  
   --color-accent: #e8a33d;
   --color-accent-hover: #f0b35c;
@@ -30,9 +30,7 @@
   --color-blur: rgba(18, 18, 18, 0.85);
  
   --chip-text-active: #ffffff;
-  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
  
 [data-theme='light'] {
   --color-bg: #f2ede6;
@@ -44,10 +42,8 @@
   --color-text-dim: #c0c0c0;
   --color-border: rgba(0, 0, 0, 0.07);
   --color-border-focus: rgba(232, 163, 61, 0.5);
-  --color-input-bg: rgba(0, 0, 0, 0.05);
+  --color-control-bg: rgba(0, 0, 0, 0.05);
   --color-blur: rgba(255, 255, 255, 0.88);
-
-  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -82,10 +78,17 @@ header {
   max-width: 1200px;
 }
 
-.header-brand {
+.brand {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  text-decoration: none;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
 .icon-badge {
@@ -100,7 +103,7 @@ header {
   font-size: 1.5rem;
 }
 
-.header-brand span {
+.brand span {
   color: var(--color-text);
   font-weight: 800;
   font-size: 1.2rem;
@@ -112,7 +115,7 @@ header {
   max-width: 450px;
   width: 100%;
   gap: 0.7rem;
-  background-color: var(--color-surface-high);
+  background-color: var(--color-control-bg);
   color: var(--color-text-secondary);
   padding: 0.7rem 0.8rem;
   border: 1px solid transparent;
@@ -121,7 +124,7 @@ header {
 }
 
 .search-container:focus-within {
-  border-color: var(--color-accent);
+  border-color: var(--color-border-focus);
 }
 
 .visually-hidden {
@@ -149,7 +152,6 @@ header {
   color: var(--color-text);
 }
 
-
 .search-container input[type="search"] {
   appearance: none;
   -webkit-appearance: none;
@@ -160,14 +162,17 @@ header {
 }
 
 .header-container button {
+  background-color: var(--color-control-bg);
   color: var(--color-text-secondary);
   border: none;
-  outline: none;
   cursor: pointer;
   transition: color 0.4s ease;
 }
 
-.header-container button:focus-visible {
+.header-container button:focus-visible,
+.favorite:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
   color: var(--color-text);
 }
 
@@ -181,6 +186,11 @@ header {
   height: 38px;
   font-size: 1rem;
   border-radius: 12px;
+  transition: color 0.4s ease;
+}
+
+#theme-toggle:hover {
+  color: var(--color-accent-hover);
 }
 
 .filters-container {
@@ -208,7 +218,6 @@ header {
   font-weight: 600;
   letter-spacing: 0.02em;
   border: none;
-  outline: none;
   cursor: pointer;
 }
 
@@ -229,7 +238,7 @@ header {
   background-color: var(--color-category-tudo);
 }
 
-.filter--mundo {
+.filter--mundo, .badge--mundo {
   background-color: var(--color-category-mundo-bg);
   color: var(--color-category-mundo);
 }
@@ -238,7 +247,7 @@ header {
   background-color: var(--color-category-mundo);
 }
 
-.filter--tecnologia {
+.filter--tecnologia, .badge--tecnologia {
   background-color: var(--color-category-tecnologia-bg);
   color: var(--color-category-tecnologia);
 }
@@ -247,7 +256,7 @@ header {
   background-color: var(--color-category-tecnologia);
 }
 
-.filter--negocios {
+.filter--negocios, .badge--negocios {
   background-color: var(--color-category-negocios-bg);
   color: var(--color-category-negocios);
 }
@@ -256,7 +265,7 @@ header {
   background-color: var(--color-category-negocios);
 }
 
-.filter--esportes {
+.filter--esportes, .badge--esportes {
   background-color: var(--color-category-esportes-bg);
   color: var(--color-category-esportes);
 }
@@ -274,16 +283,151 @@ header {
   background-color: var(--color-category-salvos);
 }
 
-.feed-container, section {
+.container {
   max-width: 1200px;
   padding: 1rem 1.3rem;
   margin: 0 auto;
 }
 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title h2 {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+}
+
+.section-title .divider {
+  flex: 1;
+  margin: 0;
+}
+
 .card--featured img {
-  width: 100%;
+  width: 450px;
+  height: 300px;
+  border-radius: 23px;
+  object-fit: cover;
+}
+
+.card h1, .card h3 {
+  color: var(--color-text);
+}
+
+.card--featured .card-content {
+  max-width: 600px;
+  padding-left: 3rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: 23px;
+  margin-top: 1.5rem;
+}
+
+.favorite {
+  background-color: var(--color-control-bg);
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  opacity: 0.6;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  cursor: pointer; 
+  transition: opacity 0.4s ease;
+}
+
+.filter:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.favorite:hover {
+  opacity: 1;
 }
 
 .card a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-content p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.badge {
+  align-self: flex-start;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.card-meta span, .card-meta time {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+}
+
+.card-meta span {
+  font-weight: 600;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0.8rem 0 0;
+}
+
+.card--news {
+  padding: 0.9rem;
+}
+
+.card--news img {
+  width: 270px;
+  height: 180px;
+  border-radius: 23px;
+  object-fit: cover;
+}
+
+.card--news .card-content {
+  padding-left: 1.7rem;
+  max-width: 800px;
+}
+
+.card--news .card-content p {
+  font-size: 0.85rem;
+}
+
+.card--news .card-meta span, 
+.card--news .card-meta time {
+  font-size: 0.7rem;
+}
+
+
+
+
+
+
+
