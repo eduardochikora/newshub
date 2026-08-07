@@ -27,6 +27,9 @@
   --color-category-esportes-bg: rgba(52, 211, 153, 0.15);
   --color-category-salvos-bg: rgba(156, 163, 175, 0.15);
 
+  --color-favorite: #e8a33d; 
+  --color-favorite-bg: rgba(232, 163, 61, 0.15);
+
   --color-blur: rgba(18, 18, 18, 0.85);
  
   --chip-text-active: #ffffff;
@@ -43,6 +46,8 @@
   --color-border: rgba(0, 0, 0, 0.07);
   --color-border-focus: rgba(232, 163, 61, 0.5);
   --color-control-bg: rgba(0, 0, 0, 0.05);
+  --color-favorite: #d98f28; 
+  --color-favorite-bg: rgba(217, 143, 40, 0.12);
   --color-blur: rgba(255, 255, 255, 0.88);
 }
 
@@ -52,10 +57,27 @@
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-high);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent-hover);
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'DM Sans', -apple-system, sans-serif;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -225,6 +247,10 @@ header {
   font-size: 0.9rem;
 }
 
+.filter--salvos {
+  border: 1px solid var(--color-border);
+}
+
 .filter[aria-pressed="true"] {
   color: var(--chip-text-active);
 }
@@ -289,6 +315,10 @@ header {
   margin: 0 auto;
 }
 
+.latest-news-container {
+  padding-bottom: 5rem;
+}
+
 .section-title {
   display: flex;
   align-items: center;
@@ -299,7 +329,7 @@ header {
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .section-title .divider {
@@ -329,6 +359,12 @@ header {
   padding: 1.5rem;
   border-radius: 23px;
   margin-top: 1.5rem;
+  position: relative;
+  transition: border-color 0.5s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent-hover);
 }
 
 .favorite {
@@ -348,13 +384,23 @@ header {
   transition: opacity 0.4s ease;
 }
 
+.favorite:hover {
+  opacity: 1;
+}
+
+.favorite[aria-pressed="true"] {
+  opacity: 1;
+  color: var(--color-favorite);
+}
+
+.favorite[aria-pressed="true"]:hover {
+  opacity: 0.7;
+  color: var(--color-favorite);
+}
+
 .filter:focus-visible {
   outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
-}
-
-.favorite:hover {
-  opacity: 1;
 }
 
 .card a {
@@ -424,6 +470,92 @@ header {
 .card--news .card-meta time {
   font-size: 0.7rem;
 }
+
+footer {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.8rem 1.3rem;
+}
+
+.footer-column {
+  justify-self: center;
+}
+
+.footer-tagline {
+  max-width: 220px;
+  line-height: 1.6;
+}
+
+.footer-column h4 {
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+.footer-column p,
+.footer-column nav a {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+footer a:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.footer-column p,
+.footer-column nav {
+  margin-top: 1.5rem;
+}
+
+.footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.footer-column nav a {
+  text-decoration: none;
+  transition: color 0.4s ease;
+  letter-spacing: 0.02em;
+}
+
+.footer-column nav a:hover {
+  color: var(--color-accent-hover);
+}
+
+.footer-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-divider {
+  width: 80%;
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0 auto;
+}
+
+.footer-copyright {
+  display: block;
+  padding: 1.2rem 0 1.2rem;
+  text-align: center;
+  letter-spacing: 0.035em;
+}
+
+
 
 
 

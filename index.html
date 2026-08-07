@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>NewsHub</title>
@@ -60,7 +62,7 @@
         <div class="container">
 
             <article class="card card--featured">
-                <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="1">
+                <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="true" data-id="1">
                     <i class="ri-star-line"></i>
                 </button>
 
@@ -228,10 +230,10 @@
                     </div>
                     <span>NewsHub</span>
                 </a>
-                <p>Notícias atualizadas de todo o mundo em um só lugar.</p>
+                <p class="footer-tagline">Notícias atualizadas de todo o mundo em um só lugar.</p>
             </div>
             <div class="footer-column">
-                <h3>Categorias</h3>
+                <h4>Categorias</h4>
                 <nav aria-label="Navegação do rodapé">
                     <ul>
                         <li>
@@ -250,13 +252,18 @@
                 </nav>
             </div>
             <div class="footer-column">
-                <h3>Fonte de dados</h3>
+                <h4>Fonte de dados</h4>
                 <p>
-                    Dados via <a href="https://open-platform.theguardian.com/" target="_blank" rel="noopener noreferrer">The Guardian API</a>
+                    Dados via <a href="https://open-platform.theguardian.com/" target="_blank" rel="noopener noreferrer" class="footer-link">The Guardian API</a>.
                 </p>
             </div>
         </div>
-        <small>&copy; 2026 NewsHub. Todos os direitos reservados.</small>
+        <hr class="footer-divider">
+        <small class="footer-copyright">
+            &copy; 2026 NewsHub | Desenvolvido por 
+            <a href="https://github.com/eduardochikora" target="_blank" rel="noopener noreferrer" class="footer-link">Eduardo Chikora</a>. 
+            Todos os direitos reservados.
+        </small>
     </footer>
 </body>
 
