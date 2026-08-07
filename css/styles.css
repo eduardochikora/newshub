@@ -390,12 +390,12 @@ header {
 
 .favorite[aria-pressed="true"] {
   opacity: 1;
+  background-color: var(--color-favorite-bg);
   color: var(--color-favorite);
 }
 
 .favorite[aria-pressed="true"]:hover {
-  opacity: 0.7;
-  color: var(--color-favorite);
+  opacity: 0.6;
 }
 
 .filter:focus-visible {
