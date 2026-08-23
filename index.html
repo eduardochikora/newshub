@@ -58,7 +58,21 @@
                 </button>
             </div>
         </div>
-        <div class="container">
+
+        <div class="search-results">
+            <p class="search-results-title"></p>
+            <div class="search-no-results">
+                <i class="ri-newspaper-line"></i>
+                <p class="no-results-title">Nenhuma notícia encontrada</p>
+                <p class="no-results-subtitle">Tente buscar por outro termo ou confira as categorias disponíveis</p>
+                <button type="button" class="clear-search-btn">
+                    Limpar busca
+                </button>
+            </div>
+            <div class="search-results-list"></div>
+        </div>
+
+        <div class="container container--featured">
             <article class="card card--featured">
                 <div class="card-top-row">
                     <span class="badge badge--mundo">Mundo</span>
@@ -87,8 +101,8 @@
                 </a>
             </article>
         </div>
-
-        <section class="container container-news" aria-labelledby="titulo-ultimas">
+        
+        <section class="container container--news" aria-labelledby="titulo-ultimas">
             <div class="section-title">
                 <h2 id="titulo-ultimas">Últimas notícias</h2>
                 <hr class="divider">
@@ -235,6 +249,7 @@
             </div>
                 
         </section>
+       
     </main>
     <footer>
         <div class="footer-container">

@@ -96,6 +96,7 @@ header {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--color-border);
+  transition: all 0.5s ease;
 }
 
 .header-container {
@@ -206,7 +207,13 @@ header {
 }
 
 #clear-input {
+  display: none;
+  align-items: center;
   background: transparent;
+}
+
+#clear-input.is-visible {
+  display: flex;
 }
 
 #theme-toggle {
@@ -215,7 +222,7 @@ header {
   height: 38px;
   font-size: 1rem;
   border-radius: 12px;
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, background-color 0.4s ease;
 }
 
 #theme-toggle:hover {
@@ -227,6 +234,7 @@ header {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.5s ease;
 }
 
 .filters {
@@ -322,10 +330,85 @@ header {
   outline-offset: 2px;
 }
 
-.container {
+.search-results {
+  display: none;
+}
+
+.search-results.is-active {
+  display: block;
+}
+
+.search-results-title {
+  margin-top: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+}
+
+.search-results-title strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.search-no-results {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-weight: 400;
+  gap: 0.5rem;
+  padding: 7.5rem 1.3rem;
+  color: var(--color-text-secondary);
+}
+
+.search-no-results i {
+  color: var(--color-accent);
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.no-results-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.clear-search-btn {
+  background: transparent;
+  color: var(--color-accent);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.search-no-results.is-active {
+  display: flex;
+}
+
+.container--featured.is-hidden,
+.container--news.is-hidden,
+.search-results-list.is-hidden {
+  display: none;
+}
+
+.container,
+.search-results.is-active {
   max-width: 1200px;
   padding: 1rem 1.3rem;
   margin: 0 auto;
+}
+
+.search-results-list,
+.latest-news-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0 5rem;
 }
 
 .section-title {
@@ -345,8 +428,6 @@ header {
   max-width: 150px;
   font-size: 0.92rem;
   font-weight: 600;
-  border-bottom: 2px solid var(--color-accent);
-  padding-bottom: 0.3rem;
 }
 
 .section-title h2 {
@@ -358,13 +439,6 @@ header {
   margin: 0;
 }
 
-.latest-news-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 2rem 0 5rem;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -372,7 +446,7 @@ header {
   padding: 1rem 1.2rem;
   border: 1px solid var(--color-border);
   border-radius: 20px;
-  transition: border-color 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .card:hover {
@@ -508,6 +582,7 @@ header {
 footer {
   background-color: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
+  transition: all 0.5s ease;
 }
 
 .footer-container {
@@ -584,11 +659,13 @@ footer a:focus-visible {
 
 .footer-copyright {
   display: block;
-  max-width: 400px;
+  color: var(--color-text-secondary);
+  max-width: 370px;
+  font-weight: 500;
   padding: 1.2rem 0 1.2rem;
   text-align: center;
   margin: 0 auto;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.01em;
   line-height: 2.0;
 }
 
@@ -598,6 +675,7 @@ footer a:focus-visible {
     align-items: center;
   }
 
+  .search-results-list,
   .latest-news-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -623,6 +701,7 @@ footer a:focus-visible {
 }
  
 @media (max-width: 768px) {
+
   .header-container {
     flex-wrap: wrap;
     padding: 1rem;
@@ -649,6 +728,7 @@ footer a:focus-visible {
     margin-left: 0;
   }
 
+  .search-results-list,
   .latest-news-container {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
@@ -710,4 +790,5 @@ footer a:focus-visible {
   .card--news img {
     height: 200px;
   }
+  
 }
