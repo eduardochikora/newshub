@@ -4,6 +4,8 @@ import { createNewsCard } from './render.js'
 const categoryButtons = document.querySelectorAll('.filter')
 const footerCategoryButtons = document.querySelectorAll('.footer-category')
 
+const containerSearchResults = document.querySelector('.search-results')
+
 const containerFeatured = document.querySelector('.container--featured')
 const containerNews = document.querySelector('.container--news')
 
@@ -15,8 +17,6 @@ const categoryNoResults = document.querySelector('.category-no-results')
 
 const inputSearch = document.getElementById('news-search')
 const clearInputBtn = document.getElementById('clear-input')
-const containerSearchResults = document.querySelector('.search-results')
-
 
 const setActiveCategory = (category) => {
 
@@ -119,7 +119,7 @@ export const initFilters = () => {
                 top: 0,
                 behavior: 'smooth'
             })
-            
+
             setActiveCategory(footerCategoryBtn.dataset.category)
             filterCategory(footerCategoryBtn.dataset.category)
 
