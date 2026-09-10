@@ -1,4 +1,5 @@
 import { cardsData } from './data.js'
+import { createNewsCard } from './render.js'
 
 const inputSearch = document.getElementById('news-search')
 const clearInputBtn = document.getElementById('clear-input')
@@ -13,18 +14,36 @@ const clearNoResultsBtn = document.querySelector('.clear-search-btn');
 const containerFeatured = document.querySelector('.container--featured')
 const containerNews = document.querySelector('.container--news')
 
+const containerCategoryResults = document.querySelector('.category-results')
+
+const categoryButtons = document.querySelectorAll('.filter')
+const categoryAllButton = document.querySelector('.filter--tudo')
+
 const getSearchNews = (e) => {
 
     const inputValue = e.target.value.trim()
 
     if (inputValue) {
 
+        categoryButtons.forEach((btn) => {
+
+            btn.setAttribute('aria-pressed', 'false')
+
+        })
+
+        categoryAllButton.setAttribute('aria-pressed', 'true')
+       
         clearInputBtn.classList.add('is-visible')
         containerSearchResults.classList.add('is-active')
         containerFeatured.classList.add('is-hidden')
         containerNews.classList.add('is-hidden')
 
-        searchResultsTitle.innerHTML = `Resultados encontrados para <strong>"${inputValue}"</strong>`
+        searchResultsTitle.textContent = 'Resultados encontrados para '
+
+        const strong = document.createElement('strong')
+        strong.textContent = `"${inputValue}"`
+
+        searchResultsTitle.appendChild(strong)
 
         filterNews(inputValue)
 
@@ -53,32 +72,12 @@ const clearSearchInput = () => {
 
 const filterNews = (value) => {
 
+    containerCategoryResults.classList.remove('is-active')
+
     const searchTerm = value
 
     const filtered = cardsData.filter((cardData) => cardData.title.toLowerCase().includes(searchTerm.toLowerCase()))
-    .map((card) => {
-        return `<article class="card card--news">
-                    <div class="card-top-row">
-                        <span class="badge badge--${card.category}">${card.badge}</span>
-                        <button type="button" class="favorite" aria-label="Salvar notícia" aria-pressed="false" data-id="${card.id}">
-                            <i class="ri-star-line"></i>
-                        </button>
-                    </div>
-                    <a href="..." target="_blank" rel="noopener noreferrer">
-                        <img src="${card.image}" alt="">
-                        <div class="card-content">
-                            <h3>${card.title}</h3>
-                            <p>${card.excerpt}</p>
-                        </div>
-                        <div class="card-meta">
-                            <hr class="divider">
-                            <span>${card.source}</span>
-                            <span class="separator" aria-hidden="true">·</span>
-                            <time datetime="${card.datetime}">${card.dateLabel}</time>
-                        </div>
-                    </a>
-            </article>`
-    }).join('')
+    .map((card) => createNewsCard(card)).join('')
 
     if (filtered.length) {
 
@@ -96,6 +95,15 @@ const filterNews = (value) => {
 }
 
 export const initSearchNews = () => {
+
+    inputSearch.addEventListener('focus', () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+
+    })
 
     inputSearch.addEventListener('input', getSearchNews)
     clearInputBtn.addEventListener('click', clearSearchInput)

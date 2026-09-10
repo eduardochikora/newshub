@@ -254,6 +254,7 @@ header {
   letter-spacing: 0.02em;
   border: none;
   cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .filter i {
@@ -330,15 +331,19 @@ header {
   outline-offset: 2px;
 }
 
-.search-results {
+.search-results,
+.category-results,
+.category-results-title {
   display: none;
 }
 
-.search-results.is-active {
+.search-results.is-active,
+.category-results-title.is-active {
   display: block;
 }
 
-.search-results-title {
+.search-results-title,
+.category-results-title {
   margin-top: 1rem;
   color: var(--color-text-secondary);
   font-size: 1rem;
@@ -347,12 +352,14 @@ header {
   overflow-wrap: break-word;
 }
 
-.search-results-title strong {
+.search-results-title strong,
+.category-results-title strong {
   color: var(--color-accent);
   font-weight: 600;
 }
 
-.search-no-results {
+.search-no-results,
+.category-no-results {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -363,7 +370,8 @@ header {
   color: var(--color-text-secondary);
 }
 
-.search-no-results i {
+.search-no-results i,
+.category-no-results i {
   color: var(--color-accent);
   font-size: 5rem;
   margin-bottom: 1.5rem;
@@ -386,24 +394,30 @@ header {
   cursor: pointer;
 }
 
-.search-no-results.is-active {
+.search-no-results.is-active,
+.category-results.is-active,
+.category-no-results.is-active {
   display: flex;
 }
 
-.container--featured.is-hidden,
-.container--news.is-hidden,
-.search-results-list.is-hidden {
+.category-results.is-active {
+  flex-direction: column;
+}
+
+.is-hidden {
   display: none;
 }
 
 .container,
-.search-results.is-active {
+.search-results.is-active,
+.category-results.is-active {
   max-width: 1200px;
   padding: 1rem 1.3rem;
   margin: 0 auto;
 }
 
 .search-results-list,
+.category-results-list,
 .latest-news-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -611,7 +625,7 @@ footer {
 }
 
 .footer-column p,
-.footer-column nav a {
+.footer-column nav button {
   color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
@@ -634,13 +648,16 @@ footer a:focus-visible {
   list-style: none;
 }
 
-.footer-column nav a {
-  text-decoration: none;
+.footer-column nav button {
+  background: transparent;
+  border: none;
+  font-weight: 500;
   transition: color 0.4s ease;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  cursor: pointer;
 }
 
-.footer-column nav a:hover {
+.footer-column nav button:hover {
   color: var(--color-accent-hover);
 }
 

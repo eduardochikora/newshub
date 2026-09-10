@@ -72,6 +72,16 @@
             <div class="search-results-list"></div>
         </div>
 
+        <div class="category-results">
+            <p class="category-results-title"></p>
+                <div class="category-no-results">
+                    <i class="ri-newspaper-line"></i>
+                    <p class="no-results-title">Nenhuma notícia salva</p>
+                    <p class="no-results-subtitle">Você não salvou nenhuma notícia</p>
+                </div>
+            <div class="category-results-list"></div>
+        </div>
+
         <div class="container container--featured">
             <article class="card card--featured">
                 <div class="card-top-row">
@@ -267,16 +277,16 @@
                 <nav aria-label="Navegação do rodapé">
                     <ul>
                         <li>
-                            <a href="#" data-category="mundo">Mundo</a>
+                            <button type="button" class="footer-category" data-category="mundo" aria-pressed="false">Mundo</button>
                         </li>
                         <li>
-                            <a href="#" data-category="tecnologia">Tecnologia</a>
+                            <button type="button" class="footer-category" data-category="tecnologia" aria-pressed="false">Tecnologia</button>
                         </li>
                         <li>
-                            <a href="#" data-category="negocios">Negócios</a>
+                            <button type="button" class="footer-category" data-category="negocios" aria-pressed="false">Negócios</button>
                         </li>
                         <li>
-                            <a href="#" data-category="esportes">Esportes</a>
+                            <button type="button" class="footer-category" data-category="esportes" aria-pressed="false">Esportes</button>
                         </li>
                     </ul>
                 </nav>
@@ -295,8 +305,10 @@
             Todos os direitos reservados.
         </small>
     </footer>
+
+    <script type="module" src="js/main.js"></script>
+
 </body>
 
-<script type="module" src="js/main.js"></script>
 
 </html>
