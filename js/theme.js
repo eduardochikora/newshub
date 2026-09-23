@@ -22,8 +22,8 @@ export const initThemeToggle = () => {
     const themeStorage = localStorage.getItem('tema')
 
     if (themeStorage) {
-        isLight = themeStorage === 'light';
-        document.documentElement.setAttribute('data-theme', themeStorage);
+        isLight = themeStorage === 'light'
+        document.documentElement.setAttribute('data-theme', themeStorage)
     }
     
     icon.classList.toggle('ri-sun-line', !isLight)

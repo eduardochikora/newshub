@@ -361,12 +361,13 @@ header {
 .search-no-results,
 .category-no-results {
   display: none;
+  height: 80vh;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   font-weight: 400;
   gap: 0.5rem;
-  padding: 7.5rem 1.3rem;
   color: var(--color-text-secondary);
 }
 
@@ -405,7 +406,7 @@ header {
 }
 
 .is-hidden {
-  display: none;
+  display: none !important;
 }
 
 .container,

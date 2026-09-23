@@ -11,7 +11,7 @@ export const cardsData = [
     datetime: '2026-07-21T08:45',
     dateLabel: '21 jul. 2026 · 08:45',
     link: '...',
-    favorited: true,
+    favorited: false,
   },
   {
     id: 2,

@@ -21,11 +21,11 @@ const clearInputBtn = document.getElementById('clear-input')
 const setActiveCategory = (category) => {
 
     categoryButtons.forEach((btn) => {
-        btn.setAttribute('aria-pressed', String(btn.dataset.category === category));
+        btn.setAttribute('aria-pressed', String(btn.dataset.category === category))
     })
 
     footerCategoryButtons.forEach((btn) => {
-        btn.setAttribute('aria-pressed', String(btn.dataset.category === category));
+        btn.setAttribute('aria-pressed', String(btn.dataset.category === category))
     })
 
 }
